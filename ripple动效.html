@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <script src="./jquery-3.4.1.js"></script>
+    <style>
+      .ripple {
+        width: 400px;
+        height: 400px;
+        background: blue;
+        position: relative;
+        overflow: hidden;
+      }
+
+    </style>
+  </head>
+  <body>
+    <div class="ripple">
+
+    </div>
+    <script>
+  $(".ripple").click(function(e){
+    if ($(this).find("#wave").length){
+      $(this).find("#wave").remove();
+    }
+    $(this).append("<div id='wave'></div>");
+    var wave=$(this).find("#wave");
+    wave.css({
+      "background": " rgba(0, 0, 0, 0.3)",
+      "border-radius": " 50%",
+      "position": " absolute",
+      "-webkit-transform": " scale(0)",
+      "transform": " scale(0)",
+      "opacity": " 1",
+      "transition": " all 2s",
+      "z-index": " 1",
+      "overflow": " hidden",
+      "pointer-events": " none"
+    });
+    // 获取ripple的宽度和高度
+    waveWidth = parseInt($(this).outerWidth());
+    waveHeight = parseInt($(this).outerHeight());
+    if(waveWidth < waveHeight){
+      var R= waveHeight;
+    }else {
+      var R= waveWidth;
+    }
+    wave.css({
+      "width":(R*2)+"px",
+      "height":(R*2)+"px",
+      "top": (e.pageY -$(this).offset().top - R)+'px',
+      "left": ( e.pageX -$(this).offset().left -R)+'px',
+      "transform":"scale(1)",
+      "-webkit-transform":"scale(1)",
+      "opacity":"1"
+    });
+  });
+    </script>
+  </body>
+</html>
