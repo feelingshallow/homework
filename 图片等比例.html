@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <style>
-        .box{
+        .box {
             width: 600px;
             height: 300px;
             border: #cccccc 1px solid;
@@ -14,13 +14,13 @@
             justify-content: center;
             align-items: center;
         }
-        img{
-          line-height: 300px;
-            margin:0 auto;
-
+        .choose{
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
-        button{
-            display: block;
+        button {
+            display: inline-block;
             width: 100px;
             height: 50px;
             margin: 0 auto 100px;
@@ -31,48 +31,44 @@
 <body>
 
 <div class="box">
-    <img src="./img/long.jpg" alt="">
+    <img src="./img/2.jpg" alt="" onload="Adaptable()" >
 </div>
-<button>切换</button>
+<div class="choose">
+    <button>查看宽图效果</button>
+
+</div>
+
 
 <script>
-    let img=document.getElementsByTagName("img")[0];
-    let box=document.getElementsByTagName("div")[0];
-    let img_w=img.width;
-    let img_h=img.height;
-    let box_h=box.offsetHeight;
-    let box_w=box.offsetWidth;
-    if (img.height>img.width){
-       img.style.height=box_h+'px'
-      let width= (img_h/box_h)*img_w
-       img.style.width=width+'px';
-    }else{
-        img.style.width=box_w+'px'
-        let height=(img_w/box_w)*img_h;
-        img.style.height=height+'px';
+    let img = document.getElementsByTagName("img")[0];
+    let box = document.getElementsByTagName("div")[0];
+
+function Adaptable (){
+    let img_w = img.naturalWidth ;
+    let img_h = img.naturalHeight;
+    let box_h = box.offsetHeight;
+    let box_w = box.offsetWidth;
+    if (img.height > img.width) {
+        img.style.height = box_h + 'px'
+        let width = ( box_h/img_h ) * img_w
+        img.style.width = width + 'px';
+    } else {
+        img.style.width = box_w + 'px'
+        let height = (box_w / img_w) * img_h;
+        img.style.height = height + 'px';
     }
-    let button=document.getElementsByTagName("button")[0];
-    button.onclick=function (){
-if (img.src!="./img/widt.jpg"){
-    img.src="./img/widt.jpg"
-}else{
-    img.src="./img/long.jpg"
 }
 
-        let img_w=img.width;
-        let img_h=img.height;
-        let box_h=box.offsetHeight;
-        let box_w=box.offsetWidth;
-        if (img.height>img.width){
-            img.style.height=box_h+'px'
-            let width= (img_h/box_h)*img_w
-            img.style.width=width+'px';
-        }else{
-            img.style.width=box_w+'px'
-            let height=(img_w/box_w)*img_h;
-            img.style.height=height+'px';
-        }
+    let button = document.getElementsByTagName("button")[0];
+
+    button.onclick = function (e) {
+        e.preventDefault();
+        console.log(img.src);
+        (img.src == "./img/1.jpg")?img.src="./img/2.jpg":img.src="./img/1.jpg";
+         Adaptable()
+        setTimeout(Adaptable,100)
     }
+
 </script>
 </body>
 </html>
