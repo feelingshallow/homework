@@ -13,7 +13,6 @@
       font-size: 14px;
     }
     .container {
-      margin: 30px auto;
       position: relative;
     }
     .box {
@@ -29,7 +28,7 @@
     .rotate {
       position: absolute;
       right: 90px;
-      bottom: -20px;
+      bottom: -40px;
       width: 40px;
       height: 40px;
       background-color: royalblue;
@@ -42,13 +41,24 @@
     .img {
       width: 100%;
       height: 100%;
+      z-index: 999;
+
     }
     .paper{
       width: 800px;
       height: 800px;
-      margin: auto;
+      margin: 80px auto;
       border: black 1px solid;
-
+     box-sizing: content-box;
+      position: relative;
+    }
+    .bottom{
+      width: 100%;
+      height: 100px;
+      position: absolute;
+      bottom: 0;
+      background: aqua;
+      z-index: -2;
     }
   </style>
 </head>
@@ -61,13 +71,14 @@
       <img src="img/seal.jpg" alt="" class="img">
     </div>
   </div>
+  <div class="bottom">吸附区</div>
 </div>
 
   <script>
     let box = document.querySelector(".box");
     let rotate = document.querySelector(".rotate");
     let img=document.querySelector(".img")
-     let paper=document.querySelector(".paper")
+    let paper=document.querySelector(".paper")
     let box_H = box.offsetHeight;
     let box_W = box.offsetWidth;
     let box_T = box.offsetTop;
@@ -131,12 +142,12 @@
           } else {
             allA = angleA; //叉乘结果为正表示顺时针旋转，顺时针旋转加度数
           }
-
           box.style.transform = 'rotate(' + allA + 'deg)'
         }
       }
     }
     img.onmousedown=function (e) {
+      console.log(allA)
       e.preventDefault()
       e.stopPropagation()
       moveMouse = true
@@ -158,6 +169,46 @@
           var end = {}
           end.X = event.pageX - dis.X
           end.Y = event.pageY - dis.Y
+          const PI=Math.PI
+          let cAngel=allA+45;
+          if(cAngel>135){
+            cAngel=cAngel-90
+          }
+          if(cAngel<-45){
+            cAngel=cAngel+90
+          }
+          if (allA>=0){
+            if(end.X<Math.abs(200*Math.cos((45/180)*PI)*Math.abs(Math.sin(cAngel*PI/180))-100)){
+              end.X= Math.abs(200*Math.cos((45/180)*PI)*Math.abs(Math.sin(cAngel*PI/180))-100)
+
+            }
+            if (end.X>600){
+              end.X=600- Math.abs(200*Math.cos((45/180)*PI)*Math.abs(Math.sin(cAngel*PI/180))-100)
+            }
+            if(end.Y<Math.abs(200*Math.cos((45/180)*PI)*Math.abs(Math.sin(cAngel*PI/180))-100)){
+              end.Y=Math.abs(200*Math.cos((45/180)*PI)*Math.abs(Math.sin(cAngel*PI/180))-100)
+            }
+            if(end.Y>500){
+              end.Y=600-Math.abs(200*Math.cos((45/180)*PI)*Math.abs(Math.sin(cAngel*PI/180))-100)
+            }
+          }
+          if(allA<0){
+            if(end.X<Math.abs(200*Math.cos((45/180)*PI)*Math.abs(Math.cos(cAngel*PI/180))-100)){
+              end.X= Math.abs(200*Math.cos((45/180)*PI)*Math.abs(Math.cos(cAngel*PI/180))-100)
+
+            }
+            if (end.X>600){
+              end.X=600- Math.abs(200*Math.cos((45/180)*PI)*Math.abs(Math.cos(cAngel*PI/180))-100)
+            }
+            if(end.Y<Math.abs(200*Math.cos((45/180)*PI)*Math.abs(Math.cos(cAngel*PI/180))-100)){
+              end.Y=Math.abs(200*Math.cos((45/180)*PI)*Math.abs(Math.cos(cAngel*PI/180))-100)
+            }
+            if(end.Y>500){
+              end.Y=600-Math.abs(200*Math.cos((45/180)*PI)*Math.abs(Math.cos(cAngel*PI/180))-100)
+            }
+          }
+
+
           $('.box').css({
             'left': end.X,
             'top': end.Y
