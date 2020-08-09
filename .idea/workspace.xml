@@ -20,16 +20,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f00ddb11-400f-42cc-8514-49a5220e1301" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/memorize.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/deepClone.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/debounce.html" beforeDir="false" afterPath="$PROJECT_DIR$/debounce.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo3.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/memorize.html" beforeDir="false" afterPath="$PROJECT_DIR$/memorize.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ripple.html" beforeDir="false" afterPath="$PROJECT_DIR$/ripple.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sleep.html" beforeDir="false" afterPath="$PROJECT_DIR$/sleep.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/thorttle.html" beforeDir="false" afterPath="$PROJECT_DIR$/thorttle.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/响应式.html" beforeDir="false" afterPath="$PROJECT_DIR$/响应式.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/图片等比例.html" beforeDir="false" afterPath="$PROJECT_DIR$/图片等比例.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/拖拽.html" beforeDir="false" afterPath="$PROJECT_DIR$/拖拽.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/拖拽.html" beforeDir="false" afterPath="$PROJECT_DIR$/dragSeal.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/深拷贝.html" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,15 +55,16 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$USER_HOME$/Desktop/typescript" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Desktop/vue-homework" />
+    <property name="nodejs_package_manager_path" value="npm" />
   </component>
   <component name="RunManager">
-    <configuration name="图片等比例.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/前端作业/图片等比例.html" useBuiltInWebServerPort="true">
+    <configuration name="PictureadAptation.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/前端作业/PictureadAptation.html" useBuiltInWebServerPort="true">
       <method v="2" />
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JavaScript Debug.图片等比例.html" />
+        <item itemvalue="JavaScript Debug.PictureadAptation.html" />
       </list>
     </recent_temporary>
   </component>
@@ -85,6 +85,8 @@
       <workItem from="1596704359235" duration="5630000" />
       <workItem from="1596780289619" duration="10537000" />
       <workItem from="1596874539005" duration="11563000" />
+      <workItem from="1596959552986" duration="609000" />
+      <workItem from="1596985580493" duration="356000" />
     </task>
     <servers />
   </component>
@@ -104,10 +106,10 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="869" y="256" key="FileChooserDialogImpl" timestamp="1596621694492">
+    <state x="869" y="256" key="FileChooserDialogImpl" timestamp="1596960201391">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="869" y="256" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1596621694492" />
+    <state x="869" y="256" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1596960201391" />
     <state width="1898" height="277" key="GridCell.Tab.0.bottom" timestamp="1596875885833">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
