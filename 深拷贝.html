@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    const symbolTag = '[object Symbol]';
+    const dateTag = '[object Date]';
+    const arrayTag = '[object Array]';
+    const funcTag = '[object Function]';
+
+     function handleFn(func){
+         // 利用原型来判断是箭头函数还是普通函数
+         if(!func.prototype) return func;
+         const bodyReg = /(?<={)(.|\n)+(?=})/m;
+         const paramReg = /(?<=\().+(?=\)\s+{)/;
+         const funcString = func.toString();
+         // 分别匹配 函数参数 和 函数体
+         const param = paramReg.exec(funcString);
+         const body = bodyReg.exec(funcString);
+         if(!body) return null;
+         if (param) {
+             const paramArr = param[0].split(',');
+             return new Function(...paramArr, body[0]);
+         } else {
+             return new Function(body[0]);
+         }
+     }
+     function handleDate(target){
+         return new Date.prototype.constructor(target)
+     }
+     function handleSymbol(target){
+          return Object(Symbol.prototype.valueOf.call(target))
+     }
+     function getType(target){
+       return  Object.prototype.toString.call(target)
+     }
+    function deepClone(target,map=new Map()){
+        if ((typeof target==='object'||typeof target==="function")&&typeof target!=null){
+
+            //处理函数
+            let type = getType(target);
+            if(type===funcTag){
+                return handleFn(target)
+            }
+            if (type===symbolTag){
+                return  handleSymbol(target)
+            }
+            if (type===dateTag){
+                return handleDate(target)
+            }
+            let newobj={}
+            //处理环
+            if(map.get(target)){
+                return target
+            }
+            map.set(target, newobj);
+            for (let prop in target) {
+                if (target.hasOwnProperty(prop)) {
+                    newobj[prop] = deepClone(target[prop], map);
+                }
+            }
+            return newobj;
+        }else {
+            return target;
+        }
+
+     }
+   // 测试对象
+   let  obj1={
+         a:{a:'1'}
+    }
+
+   let obj2=  deepClone(obj1)
+    // console.log(obj2);
+    obj1.a={a:'3'}
+    // console.log(obj1)
+    // console.log(obj2);
+
+  //  测试Date对象
+  let obj3=new Date(1996, 2, 7)
+  // let obj4=deepClone(obj3)
+  //   console.log(obj4);
+  obj3=new Date(1998, 2, 7)
+    // console.log(obj3)
+    // console.log(obj4);
+
+
+//    测试环
+    let obj5={
+      a:12
+    }
+    obj5.b=obj5
+    // console.log(obj5)
+    let obj6=deepClone(obj5)
+    // console.log(obj6);
+
+//    测试函数
+    let obj7=function (){
+        console.log(1);
+    }
+    // console.log(obj7);
+     let obj8=deepClone(obj7)
+    console.log(obj8);
+    obj7=function (){
+        console.log(3);
+    }
+    // console.log(obj8);
+</script>
+</body>
+</html>

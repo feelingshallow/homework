@@ -29,10 +29,10 @@
     let box = document.querySelector(".box");
     box.addEventListener('click', function (e) {
         if (box.children.length === 0) {
-          change(e)
+          change(e);
         } else {
             box.removeChild(box.children[0])
-            change(e)
+            change(e);
         }
 
     })

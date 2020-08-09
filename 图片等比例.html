@@ -14,11 +14,13 @@
             justify-content: center;
             align-items: center;
         }
-        .choose{
+
+        .choose {
             display: flex;
             justify-content: center;
             align-items: center;
         }
+
         button {
             display: inline-block;
             width: 100px;
@@ -31,7 +33,7 @@
 <body>
 
 <div class="box">
-    <img src="./img/2.jpg" alt="" onload="Adaptable()" >
+    <img src="./img/2.jpg" alt="" onload="Adaptable()">
 </div>
 <div class="choose">
     <button>查看宽图效果</button>
@@ -43,30 +45,40 @@
     let img = document.getElementsByTagName("img")[0];
     let box = document.getElementsByTagName("div")[0];
 
-function Adaptable (){
-    let img_w = img.naturalWidth ;
-    let img_h = img.naturalHeight;
-    let box_h = box.offsetHeight;
-    let box_w = box.offsetWidth;
-    if (img.height > img.width) {
-        img.style.height = box_h + 'px'
-        let width = ( box_h/img_h ) * img_w
-        img.style.width = width + 'px';
-    } else {
-        img.style.width = box_w + 'px'
-        let height = (box_w / img_w) * img_h;
-        img.style.height = height + 'px';
+    function Adaptable() {
+        let img_w = img.naturalWidth;
+        let img_h = img.naturalHeight;
+        let box_h = box.offsetHeight;
+        let box_w = box.offsetWidth;
+        if (img.height > img.width) {
+            img.style.height = box_h + 'px'
+            let width;
+            if (box_h > img_h) {
+                width = (img_h / box_h) * img_w;
+            } else {
+                width = (box_h / img_h) * img_w;
+            }
+            img.style.width = width + 'px';
+        } else {
+            img.style.width = box_w + 'px';
+            let height;
+            if (box_w > img_w) {
+                height = (img_w / box_w) * img_h;
+            } else {
+                height = (box_w / img_w) * img_h;
+            }
+            console.log(height);
+            img.style.height = height + 'px';
+        }
     }
-}
 
     let button = document.getElementsByTagName("button")[0];
 
     button.onclick = function (e) {
         e.preventDefault();
-        console.log(img.src);
-        (img.src == "./img/1.jpg")?img.src="./img/2.jpg":img.src="./img/1.jpg";
-         Adaptable()
-        setTimeout(Adaptable,100)
+        img.src = './img/widt.jpg';
+        Adaptable();
+        setTimeout(Adaptable, 100);
     }
 
 </script>
