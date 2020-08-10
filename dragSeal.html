@@ -89,7 +89,7 @@
     //保存鼠标的初始位置和鼠标的移动点击数
     let init = {
         count: 0
-    }
+    };
     let mPointB = {};
     let typeMouse = false; //确定鼠标旋转
     let allA = 0; // 存放鼠标旋转总共的度数
@@ -159,12 +159,12 @@
             Y: e.pageY - box.position().top
         }
         document.onmousemove = function (e) {
-            e.preventDefault()
-            e.stopPropagation()
+            e.preventDefault();
+            e.stopPropagation();
             if (moveMouse) {
-                let end = {}
-                end.X = e.pageX - dis.X
-                end.Y = e.pageY - dis.Y
+                let end = {};
+                end.X = e.pageX - dis.X;
+                end.Y = e.pageY - dis.Y;
                 const PI = Math.PI;
                 let cAngel = allA + 45; //这里加45是为了计算相似三角形的偏转
                 /* 此处做判断是为了让偏转角大于90度的旋转有正确的计算*/

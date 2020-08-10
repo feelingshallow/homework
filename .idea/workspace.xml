@@ -20,15 +20,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f00ddb11-400f-42cc-8514-49a5220e1301" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/deepClone.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/debounce.html" beforeDir="false" afterPath="$PROJECT_DIR$/debounce.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/memorize.html" beforeDir="false" afterPath="$PROJECT_DIR$/memorize.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ripple.html" beforeDir="false" afterPath="$PROJECT_DIR$/ripple.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/thorttle.html" beforeDir="false" afterPath="$PROJECT_DIR$/thorttle.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/图片等比例.html" beforeDir="false" afterPath="$PROJECT_DIR$/图片等比例.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/拖拽.html" beforeDir="false" afterPath="$PROJECT_DIR$/dragSeal.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/深拷贝.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/deepClone.html" beforeDir="false" afterPath="$PROJECT_DIR$/deepClone.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -86,7 +79,8 @@
       <workItem from="1596780289619" duration="10537000" />
       <workItem from="1596874539005" duration="11563000" />
       <workItem from="1596959552986" duration="609000" />
-      <workItem from="1596985580493" duration="356000" />
+      <workItem from="1596985580493" duration="879000" />
+      <workItem from="1597020326850" duration="2545000" />
     </task>
     <servers />
   </component>
