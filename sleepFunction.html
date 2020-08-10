@@ -1,19 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
+
 <body>
-<script>
-    var $sleep = (delay) => new Promise((resolve) => setTimeout(resolve, delay));
-
-    async function Fn() {
-        await this.$sleep(1000);
-        console.log(11111111);
-    }
-
-    Fn();
-</script>
+    <script>
+        var $sleep = (delay) => new Promise((resolve) => setTimeout(resolve, delay));
+        async function Fn() {
+            await this.$sleep(1000);
+            console.log(11111111);
+        }
+        Fn();
+    </script>
 </body>
+
 </html>

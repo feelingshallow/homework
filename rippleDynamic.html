@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -21,32 +22,34 @@
             opacity: 1;
             transition: all, 2s;
         }
-
     </style>
 </head>
+
 <body>
-<div class="box"></div>
-<script>
-    let box = document.querySelector(".box");
-    box.addEventListener('click', function (e) {
-        if (box.children.length === 0) {
-            change(e);
-        } else {
-            box.removeChild(box.children[0])
-            change(e);
+    <div class="box"></div>
+    <script>
+        let box = document.querySelector(".box");
+        box.addEventListener('click', function (e) {
+            if (box.children.length === 0) {
+                change(e);
+            } else {
+                box.removeChild(box.children[0])
+                change(e);
+            }
+
+        })
+
+        function change(e) {
+            let wave = document.createElement('div')
+            wave.setAttribute('class', 'wave');
+            box.appendChild(wave);
+            let top = e.pageY - box.offsetTop - 400;
+            let left = e.pageX - box.offsetLeft - 400;
+            let R = 400;
+            wave.style.cssText =
+                `width:800px;height:800px;background:red;top:${top}px;left:${left}px;transform:scale(1);opacity:0`;
         }
-
-    })
-
-    function change(e) {
-        let wave = document.createElement('div')
-        wave.setAttribute('class', 'wave');
-        box.appendChild(wave);
-        let top = e.pageY - box.offsetTop - 400;
-        let left = e.pageX - box.offsetLeft - 400;
-        let R = 400;
-        wave.style.cssText = `width:800px;height:800px;background:red;top:${top}px;left:${left}px;transform:scale(1);opacity:0`;
-    }
-</script>
+    </script>
 </body>
+
 </html>
